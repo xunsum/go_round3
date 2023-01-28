@@ -85,7 +85,7 @@ func Register(c *gin.Context) {
 				} else {
 					c.JSON(200, models.StringDataResponse{
 						Status: 200,
-						Data:   "",
+						Data:   fmt.Sprintf("userId: %s", newUser.Id),
 						Msg:    "Registration success!",
 						Error:  "",
 					})
@@ -146,7 +146,7 @@ func Login(c *gin.Context) {
 			}
 			c.JSON(200, models.JsonDataResponse{
 				Status: 200,
-				Data:   gin.H{"token": token},
+				Data:   gin.H{"token": token, "userId": searchOutcome[0].Id},
 				Msg:    "Login success",
 				Error:  "Login success",
 			})

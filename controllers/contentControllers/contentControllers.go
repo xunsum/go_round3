@@ -53,9 +53,9 @@ func AddItem(c *gin.Context) {
 		})
 		log.Printf("Save item  info failed, error: %v", result.Error)
 	} else {
-		c.JSON(200, models.StringDataResponse{
+		c.JSON(200, models.JsonDataResponse{
 			Status: 200,
-			Data:   "",
+			Data:   gin.H{"itemId": itemId},
 			Msg:    "Item save success!",
 			Error:  "",
 		})
